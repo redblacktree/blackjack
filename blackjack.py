@@ -8,24 +8,6 @@ from gamestate import game_state
 from scenes.menu import MenuScene
 from scenes.game import GameScene
 
-
-# def get_filelike_from_url(url):
-#     return requests.get(url, stream=True).raw
-
-# def draw_card(card, x, y):
-#     card_url = get_filelike_from_url(card.json()['cards'][0]['image'])
-#     card = pygame.image.load(card_url)
-#     cardRect = card.get_rect()
-#     cardRect.centerx = x
-#     cardRect.centery = y
-#     windowSurface.blit(card, cardRect)
-
-# def draw_dealer_card(card, card_index):
-#     draw_card(card, DEALER_CARDS_X + (card_index * CARD_OFFSET), DEALER_CARDS_Y)
-    
-# def draw_player_card(card, card_index):
-#     draw_card(card, PLAYER_CARDS_X + (card_index * CARD_OFFSET), PLAYER_CARDS_Y)
-
 # set up pygame
 pygame.init()
 

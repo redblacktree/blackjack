@@ -17,7 +17,6 @@ class GameState():
     def new_game(self):        
         # deal deck of cards
         self.deck = requests.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
-        print(self.deck.json())
         # deal dealer hand
         self.dealer_hand = requests.get('https://deckofcardsapi.com/api/deck/' + self.deck.json()['deck_id'] + '/draw/?count=2').json()
         # deal player hand
