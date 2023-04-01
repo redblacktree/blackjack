@@ -24,6 +24,4 @@ class MenuScene():
                     return button.clicked(event)
                 
     def new_game(self, event):
-        print("new game button clicked in callback")
         self.game_state.new_game()
-        return "new_game"
