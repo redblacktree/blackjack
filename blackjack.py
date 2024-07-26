@@ -15,7 +15,7 @@ pygame.init()
 basicFont = pygame.font.SysFont(None, 48)
 
 # set up the window
-windowSurface = pygame.display.set_mode((1440, 1080), 0, 32)
+windowSurface = pygame.display.set_mode((800, 600), 0, 32)
 
 game_state.scenes["menu"] = MenuScene(windowSurface, basicFont, game_state)
 game_state.scenes["game"] = GameScene(windowSurface, basicFont, game_state)
