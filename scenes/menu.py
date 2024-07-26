@@ -22,6 +22,9 @@ class MenuScene():
             for button in self.buttons:
                 if button.is_clicked(event):
                     return button.clicked(event)
+        elif event.type == VIDEORESIZE:
+            self.windowSurface = pygame.display.set_mode((event.w, event.h), RESIZABLE)
+            self.draw()
                 
     def new_game(self, event):
         self.game_state.new_game()

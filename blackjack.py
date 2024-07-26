@@ -15,7 +15,7 @@ pygame.init()
 basicFont = pygame.font.SysFont(None, 48)
 
 # set up the window
-windowSurface = pygame.display.set_mode((500, 400), 0, 32)
+windowSurface = pygame.display.set_mode((500, 400), RESIZABLE, 32)
 
 game_state.scenes["menu"] = MenuScene(windowSurface, basicFont, game_state)
 game_state.scenes["game"] = GameScene(windowSurface, basicFont, game_state)
@@ -34,7 +34,11 @@ def blackjack():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
-            
+            elif event.type == VIDEORESIZE:
+                windowSurface = pygame.display.set_mode((event.w, event.h), RESIZABLE)
+                game_state.scenes["menu"].windowSurface = windowSurface
+                game_state.scenes["game"].windowSurface = windowSurface
+                game_state.set_scene(game_state.get_scene())
             
         
 blackjack()

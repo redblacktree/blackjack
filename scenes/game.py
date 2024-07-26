@@ -21,5 +21,6 @@ class GameScene():
         self.player_hand.draw()        
 
     def handle_events(self, event):
-        pass
-
+        if event.type == VIDEORESIZE:
+            self.windowSurface = pygame.display.set_mode((event.w, event.h), RESIZABLE)
+            self.draw()
