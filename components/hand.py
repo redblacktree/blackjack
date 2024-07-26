@@ -2,8 +2,8 @@ from components.card import Card
 from config import *
 
 class Hand():
-    def __init__(self, cards, x, y, windowSurface, basicFont):
-        self.cards = [Card(card, x + i * CARD_OFFSET, y, windowSurface, basicFont) for (i, card) in enumerate(cards)]
+    def __init__(self, cards, x, y, windowSurface, basicFont, hide_first_card=False):
+        self.cards = [Card(card, x + i * CARD_OFFSET, y, windowSurface, basicFont, hidden=(hide_first_card and i == 0)) for (i, card) in enumerate(cards)]
         self.x = x
         self.y = y
         self.windowSurface = windowSurface
