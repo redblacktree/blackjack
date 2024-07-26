@@ -19,9 +19,15 @@ class Card():
             f.write(requests.get(url).content)
         return os.path.join(os.path.dirname(__file__), 'temp.png')
 
+    def get_card_back_image(self):
+        url = 'https://deckofcardsapi.com/static/img/back.png'
+        with (open(os.path.join(os.path.dirname(__file__), 'temp_back.png'), 'wb')) as f:
+            f.write(requests.get(url).content)
+        return os.path.join(os.path.dirname(__file__), 'temp_back.png')
+
     def draw(self):
         if self.hidden:
-            card_back_image = pygame.image.load(os.path.join(os.path.dirname(__file__), 'card_back.png'))
+            card_back_image = pygame.image.load(self.get_card_back_image())
             cardRect = card_back_image.get_rect()
         else:
             cardRect = self.card_image.get_rect()
