@@ -3,7 +3,7 @@ from config import *
 
 class Hand():
     def __init__(self, cards, x, y, windowSurface, basicFont):
-        self.cards = [Card(card, x + CARD_OFFSET, y, windowSurface, basicFont) for (i, card) in enumerate(cards)]
+        self.cards = [Card(card, x + i * CARD_OFFSET, y, windowSurface, basicFont) for (i, card) in enumerate(cards)]
         self.x = x
         self.y = y
         self.windowSurface = windowSurface
@@ -13,4 +13,3 @@ class Hand():
     def draw(self):
         for card in self.cards:
             card.draw()
-            
