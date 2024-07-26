@@ -4,7 +4,7 @@ import requests
 from config import *
 import pygame.transform
 
-CARD_SIZE = (100, 150)
+CARD_SIZE = (50, 75)
 
 class Card():
     def __init__(self, card, x, y, windowSurface, basicFont, hidden=False):
@@ -26,12 +26,12 @@ class Card():
         url = 'https://deckofcardsapi.com/static/img/back.png'
         with (open(os.path.join(os.path.dirname(__file__), 'temp_back.png'), 'wb')) as f:
             f.write(requests.get(url).content)
-        card_back_image = pygame.image.load(os.path.join(os.path.dirname(__file__), 'temp_back.png'))
-        return pygame.transform.scale(card_back_image, CARD_SIZE)
+        return os.path.join(os.path.dirname(__file__), 'temp_back.png')
 
     def draw(self):
         if self.hidden:
             card_back_image = pygame.image.load(self.get_card_back_image())
+            card_back_image = pygame.transform.scale(card_back_image, CARD_SIZE)
             cardRect = card_back_image.get_rect()
         else:
             card_image = pygame.transform.scale(self.card_image, CARD_SIZE)
