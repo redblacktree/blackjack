@@ -1,4 +1,4 @@
-from components.card import Card
+from components.card import Card, CARD_SIZE
 from config import *
 
 class Hand():

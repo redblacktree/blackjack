@@ -2,6 +2,9 @@ import os
 import pygame
 import requests
 from config import *
+import pygame.transform
+
+CARD_SIZE = (50, 75)
 
 class Card():
     def __init__(self, card, x, y, windowSurface, basicFont, hidden=False):
@@ -28,9 +31,11 @@ class Card():
     def draw(self):
         if self.hidden:
             card_back_image = pygame.image.load(self.get_card_back_image())
+            card_back_image = pygame.transform.scale(card_back_image, CARD_SIZE)
             cardRect = card_back_image.get_rect()
         else:
-            cardRect = self.card_image.get_rect()
+            card_image = pygame.transform.scale(self.card_image, CARD_SIZE)
+            cardRect = card_image.get_rect()
         cardRect.centerx = self.x
         cardRect.centery = self.y
-        self.windowSurface.blit(self.card_image if not self.hidden else card_back_image, cardRect)
+        self.windowSurface.blit(card_image if not self.hidden else card_back_image, cardRect)
